@@ -60,8 +60,8 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="./index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang chủ </a>
-                    <a href="./kho-hang.html" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Kho hàng</a>
-                    <a href="./ds-ban.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>DS bán</a>
+                    <a href="./kho-hang.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Kho hàng</a>
+                    <a href="./ds-ban.html" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>DS bán</a>
                     <a href="./ds-khach-hang.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>DS Khách hàng</a>
                 </div>
             </nav>
@@ -161,13 +161,55 @@
             </nav>
             <!-- Navbar End -->
 
+                <!-- Sale & Revenue Start -->
+                <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Bán trong ngày</p>
+                                <h6 class="mb-0">5000000 VND</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Bán trong tháng</p>
+                                <h6 class="mb-0">50000000 VND</h6>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Doanh thu ngày</p>
+                                <h6 class="mb-0">10000000 VND</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Doanh thu tháng</p>
+                                <h6 class="mb-0">100000000 VND</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
 
             <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Danh sách sản phẩm trong kho hàng</h6>
+                            <h6 class="mb-4">Danh sách sản phẩm đã bán</h6>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -175,10 +217,11 @@
                                             <th scope="col">STT</th>
                                             <th scope="col">Tên hàng</th>
                                             <th scope="col">Mã hàng</th>
-                                            <th scope="col">Nguồn hàng</th>
-                                            <th scope="col">Địa chỉ</th>
+                                            <th scope="col">Khách hàng</th>
+                                            <th scope="col">Ngày bán</th>
                                             <th scope="col">Số lượng</th>
-                                            <th scope="col">Chi tiết</th>
+                                            <th scope="col">Ghi chú</th>
+                                            <th scope="col">Hoá đơn</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -186,91 +229,100 @@
                                             <th scope="row">1</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">4</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
-                                        </tr>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         <tr>
                                             <th scope="row">5</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">6</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">7</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">8</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">9</th>
                                             <td>Ipone 14 promax</td>
                                             <td>ip14prm-1</td>
-                                            <td>FPT shop</td>
-                                            <td>217 Nguyễn Văn Cừ</td>
-                                            <td>9</td>
-                                            <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Detail</a></td>
+                                            <td>Nguyen Van A</td>
+                                            <td>26/11/2022</td>
+                                            <td>1</td>
+                                            <td>Đã thanh toán</td>
+                                            <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Bill</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
