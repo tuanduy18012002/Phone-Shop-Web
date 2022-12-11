@@ -50,7 +50,7 @@ h6 {
     border-radius: 50%;
     right: 15px;
     bottom: 15px;
-    transition: background 0.5s;
+    transition: 0.5s;
     z-index: 11;
 }
 
@@ -321,7 +321,7 @@ button.btn {
 }
 
 .home-slider .main-slider-item {
-    padding: 0 7.5px;
+    padding: 0 20px;
 }
 
 .home-slider .slick-dots {
