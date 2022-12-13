@@ -3,9 +3,8 @@ const site_router = require('./site');
 // const detail_router = require('./detail');
 
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Expresssssssssss' });
+  res.render('index', { title: 'Express'});
 });
 
 function route(app)
