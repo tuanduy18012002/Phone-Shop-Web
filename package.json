@@ -1,20 +1,25 @@
 {
-  "name": "phone-shop-web",
-  "version": "0.0.0",
-  "private": true,
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "nodemon ./app.js",
     "main": "./app.js"
+=======
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> f4898c95b2bbce65ac9f1a8360303df7bc209859
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "handlebars": "^4.7.7",
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.8.0"
   }
 }
