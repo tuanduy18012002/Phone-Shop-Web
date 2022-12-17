@@ -3,10 +3,11 @@ const {multipleMongooseToObject} =  require('../util/mongoose')
 
 class siteController
 {
-    // show(reg, res)
-    // {
-    //     res.render('./client/home')
-    // }
+    log(reg, res)
+    {
+        res.render('./client/login')
+    }
+
     show(reg, res, next)
     {
         product.find({})

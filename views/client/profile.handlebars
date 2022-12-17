@@ -10,7 +10,7 @@
                     <a class="nav-link" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab">Payment Method</a>
                     <a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab">Address</a>
                     <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab">Account Details</a>
-                    <a class="nav-link" href="home.html">Logout</a>
+                    <a class="nav-link" href="/home">Logout</a>
                 </div>
             </div>
             <div class="col-md-9">
@@ -89,40 +89,55 @@
                     <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
                         <h4>Account Details</h4>
                         <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" placeholder="First Name">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Last Name">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Mobile">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Email">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" placeholder="Address">
-                            </div>
-                            <div class="col-md-12">
-                                <button>Update Account</button>
-                                <br><br>
-                            </div>
-                        </div>
-                        <h4>Password change</h4>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input type="password" placeholder="Current Password">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" placeholder="New Password">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Confirm Password">
-                            </div>
-                            <div class="col-md-12">
-                                <button>Save Changes</button>
-                            </div>
+                            <div class="col-lg-8">
+                                <div class="card mb-4"> 
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0"></p>
+                                            </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Email</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Phone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">account</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{sessionuser.account}}</p>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Address</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
                         </div>
                     </div>
                 </div>

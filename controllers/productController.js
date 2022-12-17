@@ -18,10 +18,10 @@ class productController
 
     show(reg, res, next)
     {
-        details.findOne({slug: reg.params.slug})
-            .then(details => 
+        product.find({slug: reg.params.slug})
+            .then(product => 
                 res.render('./client/product-detail', {
-                    details: mongooseToObject(details)
+                    product: mongooseToObject(product)
                 })
             )
             .catch(next)
