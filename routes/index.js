@@ -108,7 +108,7 @@ function route(app)
                 let page = req.query.page ? Number(req.query.page) : 1;
                 var startFrom = (page - 1) * productPerPage;
 
-                await product.find({brand: brand})
+                await product.find({name: new RegExp(search, 'i') ,brand: brand})
                 .skip(startFrom)
                 .limit(productPerPage)
                 .then(product => {
