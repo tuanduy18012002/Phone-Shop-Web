@@ -60,11 +60,79 @@ function route(app)
         res.send(sessionuser);
     });
 
+    app.get('/product', async (req, res, next) =>{
+        try{
+            const productPerPage = 6;
+            const numOfProduct = await (await product.find({})).length;
+            const numberOfPages = Math.ceil(numOfProduct / productPerPage);
+            const listNumberPage = [];
+            for (var i = 1; i <= numberOfPages; i++)
+            {
+                listNumberPage.push({value: i.toString()});
+            }
+            let page = req.query.page ? Number(req.query.page) : 1;
+            // if (page > numberOfPages)
+            // {
+            //     res.redirect('/product/?page=' + encodeURIComponent(numberOfPages));
+            // }
+            // else if (page < 1)
+            // {
+            //     res.redirect('/product/?page=' + encodeURIComponent('1'));
+            // }
+            var startFrom = (page - 1) * productPerPage;
+
+
+            await product.find({})
+            .skip(startFrom)
+            .limit(productPerPage)
+            .then(product => {
+                console.log(product.length);
+                res.render('./client/product', {
+                    pre_page: page <= 1 ? 1 : page - 1,
+                    next_page: page >= numberOfPages ? numberOfPages : page + 1,
+                    pages: listNumberPage,
+                    product: multipleMongooseToObject(product)
+                })
+            })
+            .catch(next)
+            }
+        catch(error){
+            res.status(500).json({message: error.message})
+        }
+    })
+
     app.post('/product', async (req, res, next) => {
         try{
+            const productPerPage = 6;
+            const numOfProduct = await (await product.find({brand: req.body.brand})).length;
+            console.log(numOfProduct);
+            const numberOfPages = Math.ceil(numOfProduct / productPerPage);
+            const listNumberPage = [];
+            for (var i = 1; i <= numberOfPages; i++)
+            {
+                listNumberPage.push({value: i.toString()});
+            }
+            let page = req.query.page ? Number(req.query.page) : 1;
+            // if (page > numberOfPages)
+            // {
+            //     res.redirect('/product/?page=' + encodeURIComponent(numberOfPages));
+            // }
+            // else if (page < 1)
+            // {
+            //     res.redirect('/product/?page=' + encodeURIComponent('1'));
+            // }
+            var startFrom = (page - 1) * productPerPage;
+
+
             await product.find({brand: req.body.brand})
+            .skip(startFrom)
+            .limit(productPerPage)
             .then(product => {
+                console.log(product.length);
                 res.render('./client/product', {
+                    pre_page: page <= 1 ? 1 : page - 1,
+                    next_page: page >= numberOfPages ? numberOfPages : page + 1,
+                    pages: listNumberPage,
                     product: multipleMongooseToObject(product)
                 })
             })

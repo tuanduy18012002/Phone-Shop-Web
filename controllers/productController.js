@@ -1,3 +1,4 @@
+const { response } = require('express')
 const product = require('../models/product')
 const details = require('../models/product')
 const {multipleMongooseToObject} =  require('../util/mongoose')
@@ -19,12 +20,12 @@ class productController
     show(reg, res, next)
     {
         product.find({slug: reg.params.slug})
-            .then(product => 
-                res.render('./client/product-detail', {
-                    product: mongooseToObject(product)
-                })
-            )
-            .catch(next)
+        .then(product => 
+            res.render('./client/product-detail', {
+                product: mongooseToObject(product)
+            })
+        )
+        .catch(next)
     }
 }
 
