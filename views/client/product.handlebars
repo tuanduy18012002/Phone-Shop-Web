@@ -5,18 +5,18 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-md-8">
+                        <form class="row" method="get" action="/product">
+                            <div class="col-md-8" >
                                 <div class="product-search">
-                                    <input type="email" value="Search">
-                                    <button><i class="fa fa-search"></i></button>
+                                    <input name="search">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                             <div class="container-fluid pt-4 px-4">
                                 <div class="row g-2">
                                     <div class="col-12">
                                         <div class="bg-light rounded h-100 p-4">
-                                            <form class="col-12" method="post">
+                                            <div class="col-12" method="get" action="/product">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <label for="filter">Choose a brand:</label>
@@ -29,19 +29,19 @@
                                                     </div>
                                                     <button class="col-6" type="submit">Filter</button>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     {{#each product}}
                     <div class="col-lg-4">
                         <div class="product-item">
                             <div class="product-image">
                                 <a href="/product/{{this.slug}}">
-                                    <img src="{{this.image}}" alt="Product Image">
+                                    <img src="{{this.image}}" alt="Product Image" style="width:250px;height:250px;">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -70,18 +70,18 @@
                         <ul class="pagination justify-content-center">
                             {{#if pre_page}}
                             <li class="page-item">
-                                <a class="page-link" href="/product/?page={{pre_page}}" tabindex="-1">Previous</a>
+                                <a class="page-link" href="/product?page={{pre_page}}" tabindex="-1">Previous</a>
                             </li>
                             {{/if}}
                             {{!-- <li class="page-item"><a class="page-link" href="/product/{{this.page}}">1</a></li>
                             <li class="page-item"><a class="page-link" href="/product/{{this.page}}">2</a></li>
                             <li class="page-item"><a class="page-link" href="/product/{{this.page}}">3</a></li> --}}
                             {{#each pages}}
-                                <li class="page-item"><a class="page-link" href="/product/?page={{this.value}}">{{this.value}}</a></li>
+                                <li class="page-item"><a class="page-link" href="/product?page={{this.value}}">{{this.value}}</a></li>
                             {{/each}}
                             {{#if next_page}}
                             <li class="page-item">
-                                <a class="page-link" href="/product/?page={{next_page}}">Next</a>
+                                <a class="page-link" href="/product?page={{next_page}}">Next</a>
                             </li>
                             {{/if}}
                         </ul>
