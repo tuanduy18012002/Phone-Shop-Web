@@ -88,8 +88,8 @@ function route(app)
             .then(product => {
                 console.log(product.length);
                 res.render('./client/product', {
-                    pre_page: page <= 1 ? 1 : page - 1,
-                    next_page: page >= numberOfPages ? numberOfPages : page + 1,
+                    pre_page: page <= 1 ? null : page - 1,
+                    next_page: page >= numberOfPages ? null : page + 1,
                     pages: listNumberPage,
                     product: multipleMongooseToObject(product)
                 })
@@ -130,8 +130,8 @@ function route(app)
             .then(product => {
                 console.log(product.length);
                 res.render('./client/product', {
-                    pre_page: page <= 1 ? 1 : page - 1,
-                    next_page: page >= numberOfPages ? numberOfPages : page + 1,
+                    pre_page: page <= 1 ? null : page - 1,
+                    next_page: page >= numberOfPages ? null : page + 1,
                     pages: listNumberPage,
                     product: multipleMongooseToObject(product)
                 })
