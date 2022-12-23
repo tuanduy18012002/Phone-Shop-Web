@@ -18,16 +18,24 @@
                                         <div class="bg-light rounded h-100 p-4">
                                             <div class="col-12" method="get" action="/product">
                                                 <div class="row">
-                                                    <div class="col-6">
-                                                        <label for="filter">Choose a brand:</label>
+                                                    <div class="col-4">
+                                                        <label for="filter">Brand:</label>
                                                         <select id="cars" name="brand">
+                                                        <option value="">default</option>
                                                         <option value="samsung">samsung</option>
                                                         <option value="Apple">Apple</option>
                                                         <option value="xiaomi">xiaomi</option>
                                                         <option value="sony">sony</option>
                                                         </select>
                                                     </div>
-                                                    <button class="col-6" type="submit">Filter</button>
+                                                    <div class="col-4">
+                                                        <label for="filter">Sort:</label>
+                                                        <select id="cars" name="sort">
+                                                        <option value="-1">descending</option>
+                                                        <option value="1">ascending</option>
+                                                        </select>
+                                                    </div>
+                                                    <button class="col-4" type="submit">Filter</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,27 +100,13 @@
             
             
             <div class="col-md-3">
-                <div class="sidebar-widget category">
-                    <h2 class="title">Category</h2>
-                    <ul>
-                        <li><a href="#">Lorem Ipsum</a><span>(83)</span></li>
-                        <li><a href="#">Cras sagittis</a><span>(198)</span></li>
-                        <li><a href="#">Vivamus</a><span>(95)</span></li>
-                        <li><a href="#">Fusce vitae</a><span>(48)</span></li>
-                        <li><a href="#">Vestibulum</a><span>(210)</span></li>
-                        <li><a href="#">Proin phar</a><span>(78)</span></li>
-                    </ul>
-                </div>
-                
                 <div class="sidebar-widget brands">
                     <h2 class="title">Our Brands</h2>
                     <ul>
-                        <li><a href="#">Nulla </a><span>(45)</span></li>
-                        <li><a href="#">Curabitur </a><span>(34)</span></li>
-                        <li><a href="#">Nunc </a><span>(67)</span></li>
-                        <li><a href="#">Ullamcorper</a><span>(74)</span></li>
-                        <li><a href="#">Fusce </a><span>(89)</span></li>
-                        <li><a href="#">Sagittis</a><span>(28)</span></li>
+                        <li><a href="/product?search=&brand=samsung">Samsung </a></li>
+                        <li><a href="/product?search=&brand=Apple">Apple </a></li>
+                        <li><a href="/product?search=&brand=Sony">Sony </a></li>
+                        <li><a href="/product?search=&brand=Xiaomi">Xiaomi</a></li>
                     </ul>
                 </div>
             </div>

@@ -6,26 +6,88 @@ const {mongooseToObject} =  require('../util/mongoose')
 
 class productController
 {
-    index(reg, res, next)
+    async index(req, res, next)
     {
-        product.find({})
-        .then(product => {
-            res.render('./client/product', {
-                product: multipleMongooseToObject(product)
-            })
-        })
-        .catch(next)
+        try{
+            const productPerPage = 6;
+            var numOfProduct;
+            
+            const search = req.query.search;
+            const brand = req.query.brand;
+
+            if (!req.query.search && !req.query.brand)
+            {
+                numOfProduct = await (await product.find({}).sort({name: req.query.sort})).length;
+                const numberOfPages = Math.ceil(numOfProduct / productPerPage);
+                const listNumberPage = [];
+
+                for (var i = 1; i <= numberOfPages; i++)
+                {
+                    listNumberPage.push({value: i.toString()});
+                }
+                let page = req.query.page ? Number(req.query.page) : 1;
+                var startFrom = (page - 1) * productPerPage;
+
+                await product.find({}).sort({name: req.query.sort})
+                .skip(startFrom)
+                .limit(productPerPage)
+                .then(product => {
+                    res.render('./client/product', {
+                        pre_page: page <= 1 ? null : page - 1,
+                        next_page: page >= numberOfPages ? null : page + 1,
+                        pages: listNumberPage,
+                        product: multipleMongooseToObject(product)
+                    })
+                })
+                .catch(next)
+            }
+            else
+            {
+                numOfProduct = await (await product.find({name: new RegExp(search, 'i'), brand: new RegExp(brand, 'i')}).sort({name: req.query.sort})).length;
+                const numberOfPages = Math.ceil(numOfProduct / productPerPage);
+                const listNumberPage = [];
+
+                for (var i = 1; i <= numberOfPages; i++)
+                {
+                    listNumberPage.push({value: i.toString()});
+                }
+                let page = req.query.page ? Number(req.query.page) : 1;
+                var startFrom = (page - 1) * productPerPage;
+
+                await product.find({name: new RegExp(search, 'i') , brand: new RegExp(brand, 'i')}).sort({name: req.query.sort})
+                .skip(startFrom)
+                .limit(productPerPage)
+                .then(product => {
+                    res.render('./client/product', {
+                        pre_page: page <= 1 ? null : page - 1,
+                        next_page: page >= numberOfPages ? null : page + 1,
+                        pages: listNumberPage,
+                        product: multipleMongooseToObject(product)
+                    })
+                })
+                .catch(next)
+            }
+            }
+        catch(error){
+            res.status(500).json({message: error.message})
+        }
     }
 
-    show(reg, res, next)
+    async detail(reg, res, next)
     {
-        product.find({slug: reg.params.slug})
-        .then(product => 
-            res.render('./client/product-detail', {
-                product: mongooseToObject(product)
-            })
-        )
-        .catch(next)
+        try {
+            await product.find({slug: reg.params.slug})
+            .then(product => 
+                res.render('./client/product-detail', {
+                    product: multipleMongooseToObject(product)
+                })
+            )
+            .catch(next)
+        }
+        catch(error)
+        {
+            next(error)
+        }
     }
 }
 

@@ -3,17 +3,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
+                {{#each product}}
                 <div class="row align-items-center product-detail-top">
-                    <div class="col-md-5">
-                        <div class="product-slider-single">
-                            <img src="{{data.image}}" alt="Product Image">
-                            <img src="{{data.image}}" alt="Product Image">
-                            <img src="{{data.image}}" alt="Product Image">
+                    <div class="col-md-3">
+                        <div style="width:50px;height:50px">
+                            <img src="{{this.image}}" alt="Product Image">
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <div class="product-content">
-                            <div class="title"><h2>{{data.name}}</h2></div>
+                            <div class="title"><h2>{{this.name}}</h2></div>
                             <div class="ratting">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -63,7 +62,7 @@
                             <div id="description" class="container tab-pane active"><br>
                                 <h4>Product description</h4>
                                 <p>
-                                    {{data.description}}
+                                    {{this.description}}
                                 </p>
                             </div>
                             <div id="specification" class="container tab-pane fade"><br>
@@ -118,8 +117,9 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="container">
+                {{/each}}
+
+                {{!-- <div class="container">
                     <div class="section-header">
                         <h3>Related Products</h3>
                         <p>
@@ -255,16 +255,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             
-            <div class="col-lg-3">               
+            <div class="col-md-3">               
                 <div class="sidebar-widget brands">
                     <h2 class="title">Our Brands</h2>
                     <ul>
-                        <li><a href="#">Samsung </a><span>(45)</span></li>
-                        <li><a href="#">Sony </a><span>(34)</span></li>
-                        <li><a href="#">Iphone </a><span>(67)</span></li>
-                        <li><a href="#">Xiaomi</a><span>(74)</span></li>
+                        <li><a href="#">Samsung </a></li>
+                        <li><a href="#">Sony </a></li>
+                        <li><a href="#">Iphone </a></li>
+                        <li><a href="#">Xiaomi</a></li>
 
                     </ul>
                 </div>
