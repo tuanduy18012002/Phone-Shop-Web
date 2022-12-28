@@ -1,10 +1,11 @@
+const { request } = require('express')
 const product = require('../models/product')
 const user = require('../models/user')
 const {multipleMongooseToObject} =  require('../util/mongoose')
 
 class siteController
 {
-    login(reg, res)
+    login(req, res, next)
     {
         res.render('./client/login')
     }
@@ -72,6 +73,23 @@ class siteController
             next(error)
         }
     }
+
+    async profile(reg, res, next)
+    {
+        try {
+            await user.find({account: reg.body.account, password: reg.body.password})
+            .then(user => 
+                res.render('./client/profile', {
+                    user: multipleMongooseToObject(user)
+                })
+            )
+        }
+        catch(error)
+        {
+            next(error)
+        }
+    }
+
 }
 
 module.exports = new siteController

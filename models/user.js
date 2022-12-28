@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const user = new Schema({
     admin: String,
@@ -9,5 +10,7 @@ const user = new Schema({
     phone: String,
     address: String,
 });
+
+user.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('user', user);
