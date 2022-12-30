@@ -14,10 +14,11 @@ class productController
             
             const search = req.query.search;
             const brand = req.query.brand;
+            const price = req.query.price;
 
             if (!req.query.search && !req.query.brand)
             {
-                numOfProduct = await (await product.find({}).sort({name: req.query.sort})).length;
+                numOfProduct = await (await product.find({}).sort({price: price})).length;
                 const numberOfPages = Math.ceil(numOfProduct / productPerPage);
                 const listNumberPage = [];
 
@@ -28,7 +29,7 @@ class productController
                 let page = req.query.page ? Number(req.query.page) : 1;
                 var startFrom = (page - 1) * productPerPage;
 
-                await product.find({}).sort({name: req.query.sort})
+                await product.find({}).sort({price: price})
                 .skip(startFrom)
                 .limit(productPerPage)
                 .then(product => {
@@ -43,7 +44,7 @@ class productController
             }
             else
             {
-                numOfProduct = await (await product.find({name: new RegExp(search, 'i'), brand: new RegExp(brand, 'i')}).sort({name: req.query.sort})).length;
+                numOfProduct = await (await product.find({name: new RegExp(search, 'i'), brand: new RegExp(brand, 'i')}).sort({price: price})).length;
                 const numberOfPages = Math.ceil(numOfProduct / productPerPage);
                 const listNumberPage = [];
 
@@ -54,7 +55,7 @@ class productController
                 let page = req.query.page ? Number(req.query.page) : 1;
                 var startFrom = (page - 1) * productPerPage;
 
-                await product.find({name: new RegExp(search, 'i') , brand: new RegExp(brand, 'i')}).sort({name: req.query.sort})
+                await product.find({name: new RegExp(search, 'i') , brand: new RegExp(brand, 'i')}).sort({price: price})
                 .skip(startFrom)
                 .limit(productPerPage)
                 .then(product => {

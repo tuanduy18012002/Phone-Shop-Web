@@ -2,26 +2,16 @@
 <!-- My Account Start -->
 <div class="my-account">
     <div class="container">
-        {{#each user}}
         <div class="row">
             <div class="col-md-3">
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#dashboard-tab" role="tab">Dashboard</a>
                     <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab">Orders</a>
                     <a class="nav-link" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab">Payment Method</a>
-                    <a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab">Address</a>
-                    <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab">Account Details</a>
-                    <a class="nav-link" href="/home">Logout</a>
+                    <a class="nav-link active" id="account-nav" data-toggle="pill" href="#account-tab" role="tab">Account Details</a>
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav">
-                        <h4>Dashboard</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque.
-                        </p> 
-                    </div>
                     <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
                         <div class="table-responsive">
                             <table class="table table-bordered">
@@ -44,22 +34,6 @@
                                         <td>Approved</td>
                                         <td><button>View</button></td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product Name</td>
-                                        <td>01 Jan 2020</td>
-                                        <td>$22</td>
-                                        <td>Approved</td>
-                                        <td><button>View</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product Name</td>
-                                        <td>01 Jan 2020</td>
-                                        <td>$22</td>
-                                        <td>Approved</td>
-                                        <td><button>View</button></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -70,26 +44,9 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque.
                         </p> 
                     </div>
-                    <div class="tab-pane fade" id="address-tab" role="tabpanel" aria-labelledby="address-nav">
-                        <h4>Address</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5>Payment Address</h5>
-                                <p>123 Payment Street, Los Angeles, CA</p>
-                                <p>Mobile: 012-345-6789</p>
-                                <button>Edit Address</button>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Shipping Address</h5>
-                                <p>123 Shipping Street, Los Angeles, CA</p>
-                                <p>Mobile: 012-345-6789</p>
-                                <button>Edit Address</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
+                    <div class="tab-pane fade show active" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
                         <h4>Account Details</h4>
-                        <div class="row">
+                        <form method="post" action="/profile" class="row">
                             <div class="col-lg-8">
                                 <div class="card mb-4"> 
                                     <div class="card-body">
@@ -97,54 +54,81 @@
                                             <div class="col-sm-3">
                                                 <p class="mb-0"></p>
                                             </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0"></p>
                                     </div>
-                                    </div>
-                                    <hr>
                                     <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col">
+                                        {{#if user}}
+                                        {{#showPro}}
+                                        <label for="email">Email: </label>
+                                        <input name='email' id="email" type="text" value="{{email}}">
+                                        {{/showPro}}
+                                        {{else}}
                                         <p class="mb-0">Email</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0"></p>
+                                        {{/if}}
                                     </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col">
+                                        {{#if user}}
+                                        {{#showPro}}
+                                        <label for="phone">Phone: </label>
+                                        <input name='phone' id="phone" type="text" value="{{phone}}">
+                                        {{/showPro}}
+                                        {{else}}
                                         <p class="mb-0">Phone</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0"></p>
+                                        {{/if}}
                                     </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">account</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">{{this.account}}</p>
+                                    <div class="col">
+                                        {{#if user}}
+                                        {{#showPro}}
+                                        <label for="account">Account: </label>
+                                        <p><input name='account' id="account" type="hidden" value="{{account}}">{{account}}</p>
+                                        {{/showPro}}
+                                        {{else}}
+                                        <p class="mb-0">Account</p>
+                                        {{/if}}
                                     </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col">
+                                        {{#if user}}
+                                        {{#showPro}}
+                                        <label for="name">Name: </label>
+                                        <input name='name' id="name" type="text" value="{{name}}">
+                                        {{/showPro}}
+                                        {{else}}
+                                        <p class="mb-0">Name</p>
+                                        {{/if}}
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                    <div class="col">
+                                        {{#if user}}
+                                        {{#showPro}}
+                                        <label for="address">Address: </label>
+                                        <input name='address' id="address" type="text" value="{{address}}">
+                                        {{/showPro}}
+                                        {{else}}
                                         <p class="mb-0">Address</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0"></p>
+                                        {{/if}}
                                     </div>
                                     </div>
                                 </div>
-                                </div>
-                        </div>
+                            </div>
+                            <div class="row-lg-4">
+                                <button type="submit">Update</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        {{/each}}
     </div>
 </div>
 <!-- My Account End -->

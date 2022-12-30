@@ -5,30 +5,30 @@ const {multipleMongooseToObject} =  require('../util/mongoose')
 
 class siteController
 {
+    pro(req, res, next)
+    {
+        const data = req.user
+        res.render('./client/profile', {showPro : data})
+    }
+
+    async uppro(req, res, next)
+    {
+        try {
+            const update = await user.findOneAndUpdate({account: req.body.account}, 
+                {$set: {email: req.body.email, address: req.body.address, 
+                    phone: req.body.phone, name: req.body.name}}, {returnOriginal: false})
+            update.save()
+            res.redirect('/')
+        }
+        catch(error)
+        {
+            next(error)
+        }
+    }
+
     login(req, res, next)
     {
         res.render('./client/login')
-    }
-
-    async authen(req, res, next)
-    {
-        try{
-            const data = await user.find({account: req.body.account, password: req.body.password});
-            if (data.length > 0)
-            {
-                req.session.user = data
-                req.session.save()
-                const sessionuser = req.session.user;
-                res.send("you have login success");
-            }
-            else
-            {
-                res.send('no account available')
-            }
-        }
-        catch(error){
-            res.status(500).json({message: error.message})
-        }
     }
 
     register(reg, res)
@@ -54,7 +54,7 @@ class siteController
         catch(error){
             res.status(500).json({message: error.message})
         }
-        res.redirect('/');
+        res.redirect('/login');
     }
     
     async show(reg, res, next)
@@ -73,23 +73,6 @@ class siteController
             next(error)
         }
     }
-
-    async profile(reg, res, next)
-    {
-        try {
-            await user.find({account: reg.body.account, password: reg.body.password})
-            .then(user => 
-                res.render('./client/profile', {
-                    user: multipleMongooseToObject(user)
-                })
-            )
-        }
-        catch(error)
-        {
-            next(error)
-        }
-    }
-
 }
 
 module.exports = new siteController

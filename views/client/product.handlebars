@@ -18,7 +18,7 @@
                                         <div class="bg-light rounded h-100 p-4">
                                             <div class="col-12" method="get" action="/product">
                                                 <div class="row">
-                                                    <div class="col-4">
+                                                    <div class="col-3">
                                                         <label for="filter">Brand:</label>
                                                         <select id="cars" name="brand">
                                                         <option value="">default</option>
@@ -28,14 +28,14 @@
                                                         <option value="sony">sony</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-4">
-                                                        <label for="filter">Sort:</label>
-                                                        <select id="cars" name="sort">
+                                                    <div class="col-5">
+                                                        <label for="filter">Sort by price:</label>
+                                                        <select id="cars" name="price">
                                                         <option value="-1">descending</option>
                                                         <option value="1">ascending</option>
                                                         </select>
                                                     </div>
-                                                    <button class="col-4" type="submit">Filter</button>
+                                                    <button class="col-3" type="submit">Filter</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <div class="price">$22 <span>$25</span></div>
+                                <div class="price">{{this.price}} $</div>
                             </div>
                         </div>
                     </div>

@@ -7,11 +7,6 @@ const {multipleMongooseToObject} =  require('../util/mongoose');
 
 function route(app)
 {    
-    app.get("/profile", (req, res) => {
-        const sessionuser = req.session.user;
-        res.send(sessionuser);
-    });
-
     app.use('/product', product_router)
     app.use('/', site_router)
 }
