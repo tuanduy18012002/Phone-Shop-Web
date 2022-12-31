@@ -14,6 +14,7 @@ class siteController
     async uppro(req, res, next)
     {
         try {
+            console.log(req.body.name)
             const update = await user.findOneAndUpdate({account: req.body.account}, 
                 {$set: {email: req.body.email, address: req.body.address, 
                     phone: req.body.phone, name: req.body.name}}, {returnOriginal: false})
