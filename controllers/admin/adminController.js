@@ -5,21 +5,17 @@ const {multipleMongooseToObject} =  require('../../util/mongoose')
 
 class adminController
 {
-    async show(reg, res, next)
+    show(req, res, next)
     {
-        try {
-            await product.find({})
-            .then(product => 
-                res.render('./admin/home', {
-                    product: multipleMongooseToObject(product)
-                })
-            )
-            .catch(next)
+        const temp = req.user[0]
+        const ad = JSON.parse(JSON.stringify(temp))
+        if (ad.admin)
+        {
             res.render('./admin/home')
         }
-        catch(error)
+        else
         {
-            next(error)
+            res.redirect('/')
         }
     }
 }
