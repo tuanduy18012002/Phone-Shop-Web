@@ -2,12 +2,12 @@
 <div class="product-detail">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-md-9">
                 {{#each product}}
                 <div class="row align-items-center product-detail-top">
                     <div class="col-md-3">
-                        <div style="width:50px;height:50px">
-                            <img src="{{this.image}}" alt="Product Image">
+                        <div>
+                            <img style="width:200px;height:300px" src="{{this.image}}" alt="Product Image">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -20,7 +20,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <div class="price">$22</div>
+                            <div class="price">{{this.price}} $</div>
                             <div class="details">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non.
@@ -117,146 +117,8 @@
                         </div>
                     </div>
                 </div>
-                {{/each}}
-
-                {{!-- <div class="container">
-                    <div class="section-header">
-                        <h3>Related Products</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra at massa sit amet ultricies. Nullam consequat, mauris non interdum cursus
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="row align-items-center product-slider product-slider-3">
-                    <div class="col-lg-3">
-                        <div class="product-item">
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="images/client/Galaxy A23 5G.png" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="title"><a href="#">Phasellus Gravida</a></div>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="price">$22 <span>$25</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product-item">
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="images/client/Galaxy S21 FE 5G.png" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="title"><a href="#">Phasellus Gravida</a></div>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="price">$22 <span>$25</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product-item">
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="images/client/Galaxy S22.png" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="title"><a href="#">Phasellus Gravida</a></div>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="price">$22 <span>$25</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product-item">
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="images/client/Galaxy XCover6 Pro.png" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="title"><a href="#">Phasellus Gravida</a></div>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="price">$22 <span>$25</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product-item">
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="images/client/galaxy Z flip4.png" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="title"><a href="#">Phasellus Gravida</a></div>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="price">$22 <span>$25</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            
+                {{/each}}      
+            </div>      
             <div class="col-md-3">               
                 <div class="sidebar-widget brands">
                     <h2 class="title">Our Brands</h2>
