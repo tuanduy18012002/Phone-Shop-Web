@@ -90,6 +90,21 @@ class productController
             next(error)
         }
     }
+
+    async uppro(reg, req, res, next)
+    {
+        try {
+            const update = await product.findOneAndUpdate({slug: reg.params.slug}, 
+                {$set: {name: req.body.name, description: req.body.description, 
+                    brand: req.body.brand, price: req.body.price, image: req.body.image}}, {returnOriginal: false})
+            update.save()
+            // res.redirect('/admin/product/:slug')
+        }
+        catch(error)
+        {
+            next(error)
+        }
+    }
 }
 
 module.exports = new productController
