@@ -1,0 +1,48 @@
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-4">Danh sách sản phẩm trong kho hàng</h6>
+                    <a href="./san-pham.html">Nhập hàng</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tên hàng</th>
+                                <th scope="col">Mô tả</th>
+                                <th scope="col">Hãng</th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Chỉnh sửa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each product}}
+                            <tr>
+                                <td>{{this.name}}</td>
+                                <td>{{this.description}}</td>
+                                <td>{{this.brand}}</td>
+                                <td>{{this.price}}</td>
+                                <td><a class="btn btn-sm btn-primary" href="./san-pham.html">Edit</a></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <a href="#">&laquo;</a>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">&raquo;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Table End -->

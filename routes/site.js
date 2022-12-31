@@ -4,6 +4,11 @@ const router = express.Router()
 
 const site_controller = require('../controllers/siteController')
 
+router.use('/', function (req, res, next) {
+  req.app.locals.layout = 'main'; // set your layout here
+  next(); // pass control to the next handler
+  });
+
 router.post('/profile', site_controller.uppro)
 router.get('/profile', site_controller.pro)
 
