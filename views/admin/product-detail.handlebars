@@ -5,26 +5,26 @@
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-light rounded h-100 p-4">
                     <h6 class="mb-4">Thông tin sản phẩm</h6>
-                    <form>
+                    <form method="post" action="/admin/product/{{this.slug}}">
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên sản phẩm</label>
-                            <input type="text" class="form-control" id="name" value="{{this.name}}">
+                            <input type="text" class="form-control" name="name"id="name" value="{{this.name}}">
                         </div>
                         <div class="mb-3">
                             <label for="discription" class="form-label">Mô tả</label>
-                            <input type="text" class="form-control" id="discription" value="{{this.description}}">
+                            <input type="text" class="form-control" name="description" id="discription" value="{{this.description}}">
                         </div>
                         <div class="mb-3">
                             <label for="brand" class="form-label">Hãng sản phẩm</label>
-                            <input type="text" class="form-control" id="brand" value="{{this.brand}}">
+                            <input type="text" class="form-control" name="brand" id="brand" value="{{this.brand}}">
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Giá sản phẩm</label>
-                            <input type="text" class="form-control" id="price" value="{{this.price}}">
+                            <input type="text" class="form-control" name="price" id="price" value="{{this.price}}">
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Link ảnh minh hoạ</label>
-                            <input type="text" class="form-control" id="image" value="{{this.image}}">
+                            <input type="text" class="form-control" name="image" id="image" value="{{this.image}}">
                         </div>
                         <button type="submit" class="btn btn-primary w-100 m-2">Submit</button>
                     </form>

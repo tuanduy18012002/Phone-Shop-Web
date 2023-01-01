@@ -91,10 +91,10 @@ class productController
         }
     }
 
-    async uppro(reg, req, res, next)
+    async uppro(req, res, next)
     {
         try {
-            const update = await product.findOneAndUpdate({slug: reg.params.slug}, 
+            const update = await product.findOneAndUpdate({slug: req.params.slug}, 
                 {$set: {name: req.body.name, description: req.body.description, 
                     brand: req.body.brand, price: req.body.price, image: req.body.image}}, {returnOriginal: false})
             update.save()
