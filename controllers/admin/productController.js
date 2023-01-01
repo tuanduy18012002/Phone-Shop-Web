@@ -9,7 +9,7 @@ class productController
     async index(req, res, next)
     {
         try{
-            const productPerPage = 9;
+            const productPerPage = 6;
             var numOfProduct;
             
             const search = req.query.search;
@@ -98,7 +98,6 @@ class productController
                 {$set: {name: req.body.name, description: req.body.description, 
                     brand: req.body.brand, price: req.body.price, image: req.body.image}}, {returnOriginal: false})
             update.save()
-            // res.redirect('/admin/product/:slug')
         }
         catch(error)
         {

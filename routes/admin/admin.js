@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var product_router = require('./product')
+var user_router = require('./user')
 var adminController = require('../../controllers/admin/adminController');
 
 router.use('/', function (req, res, next) {
@@ -8,6 +9,7 @@ router.use('/', function (req, res, next) {
   next(); // pass control to the next handler
   });
 router.use('/product', product_router)
+router.use('/user', user_router)
 router.use('/', adminController.show)
 
 module.exports = router;

@@ -11,127 +11,39 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">STT</th>
-                                <th scope="col">Họ</th>
-                                <th scope="col">Tên</th>
-                                <th scope="col">Mã KH</th>
+                                <th scope="col">Tên đăng nhập</th>
+                                <th scope="col">Mật khẩu</th>
+                                <th scope="col">Họ tên</th> 
+                                <th scope="col">Email</th>
                                 <th scope="col">SDT</th>
                                 <th scope="col">Địa chỉ</th>
-                                <th scope="col">Ghi chú</th>
                                 <th scope="col">Chỉnh sửa</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {{#each user}}
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
+                                <td>{{this.account}}</td>
+                                <td>{{this.password}}</td>
+                                <td>{{this.name}}</td>
+                                <td>{{this.email}}</td>
+                                <td>{{this.phone}}</td>
+                                <td>{{this.address}}</td>
+                                <td><a class="btn btn-sm btn-primary" href="user/{{this.slug}}">Edit</a></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Nguyễn</td>
-                                <td>Van A</td>
-                                <td>KH-00001</td>
-                                <td>0123456789</td>
-                                <td>217 Nguyễn Văn Cừ</td>
-                                <td>Đăng ký 26/11/2022</td>
-                                <td><a class="btn btn-sm btn-primary" href="./khach-hang.html">Edit</a></td>
-                            </tr>
+                            {{/user}}
                         </tbody>
                     </table>
                     <div class="pagination">
-                        <a href="#">&laquo;</a>
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">&raquo;</a>
+                        {{#if pre_page}}
+                            <a href="/admin/product?page={{pre_page}}">&laquo;</a>
+                        {{/if}}
+                        {{#each pages}}
+                            <a href="/admin/product?page={{this.value}}">{{this.value}}</a>
+                        {{/each}}
+                        {{#if next_page}}
+                            <a href="/admin/product?page={{next_page}}">&raquo;</a>
+                        {{/if}}
                     </div>
                 </div>
             </div>

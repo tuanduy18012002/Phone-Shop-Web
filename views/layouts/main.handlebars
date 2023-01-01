@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="">
+                            <a href="/">
                                 <h3>Electronic shop</h3>
                             </a>
                         </div>
@@ -37,18 +37,19 @@
                     <div class="col-md-6"></div>
                     <div class="col-md-3">
                         <div class="user">
-                            <div class="col">
+                            <div class="row">
                                 {{#if user}}
-                                    <form method="post" action="/logout">
+                                    <form method="post" action="/logout" class="col">
                                         <button>Logout</button>
                                     </form>
+                                     <a href="/admin" class="col"><button>Admin</button></a>
                                 {{else}}
-                                    <a href="/login"><button>Login</button></a>
-                                    <a href="/register"><button>Register</button></a>
+                                    <a href="/login" class="col"><button>Login</button></a>
+                                    <a href="/register" class="col"><button>Register</button></a>
                                 {{/if}}
-                                <div class="cart">
-                                <i class="fa fa-cart-plus"></i>
-                            </div>
+                                <div class="cart col" >
+                                    <i class="fa fa-cart-plus"></i>
+                                </div>
                             </div>    
                         </div>
                     </div>
