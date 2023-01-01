@@ -48,6 +48,7 @@ class siteController
             else
             {
                 const formData = req.body;
+                formData.slug = req.body.account;
                 const account = new user(formData);
                 account.save();
             }

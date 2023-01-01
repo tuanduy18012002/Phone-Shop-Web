@@ -98,6 +98,7 @@ class productController
                 {$set: {name: req.body.name, description: req.body.description, 
                     brand: req.body.brand, price: req.body.price, image: req.body.image}}, {returnOriginal: false})
             update.save()
+            res.redirect('/admin/product')
         }
         catch(error)
         {
