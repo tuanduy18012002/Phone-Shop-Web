@@ -105,6 +105,36 @@ class userController
             next(error)
         }
     }
+
+    async add(req, res, next)
+    {
+        try{
+            const data = await user.find({account: req.body.account});
+            if (data.length > 0)
+            {
+                return res.send('<h1>Account existed!!</h1> <br> <a href="/admin/user/add-user">Add again</a>');
+            }
+            else
+            {
+                const formData = req.body;
+                formData.slug = req.body.account;
+                const account = new user(formData);
+                account.save();
+            }
+        }
+        catch(error){
+            res.status(500).json({message: error.message})
+        }
+        res.redirect('/admin/user');
+    }
+
+    async showDetail(req, res, next)
+    {
+        var acc = new user();
+        res.render('./admin/customer-detail', {
+            user : acc
+        });
+    }
 }
 
 module.exports = new userController

@@ -105,6 +105,36 @@ class productController
             next(error)
         }
     }
+
+    async add(req, res, next)
+    {
+        try{
+            const data = await product.find({name: req.body.name});
+            if (data.length > 0)
+            {
+                return res.send('<h1>Product existed!!</h1> <br> <a href="/admin/product/add-product">Add again</a>');
+            }
+            else
+            {
+                const formData = req.body;
+                formData.slug = req.body.name;
+                const prod = new product(formData);
+                prod.save();
+            }
+        }
+        catch(error){
+            res.status(500).json({message: error.message})
+        }
+        res.redirect('/admin/product');
+    }
+
+    async showDetail(req, res, next)
+    {
+        var prd = new product();
+        res.render('./admin/product-detail', {
+            product : prd
+        });
+    }
 }
 
 module.exports = new productController
