@@ -4,37 +4,45 @@
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-line fa-3x text-primary"></i>
+                {{#if revenue}}
                 <div class="ms-3">
-                    <p class="mb-2">Bán trong ngày</p>
-                    <h6 class="mb-0">5000000 VND</h6>
+                    <p class="mb-2">Tổng doanh thu</p>
+                    <h6 class="mb-0">{{revenue}} $</h6>
                 </div>
+                {{/if}}
             </div>
         </div>
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                {{#if numBill}}
                 <div class="ms-3">
-                    <p class="mb-2">Bán trong tháng</p>
-                    <h6 class="mb-0">50000000 VND</h6>
+                    <p class="mb-2">Tổng số hoá đơn</p>
+                    <h6 class="mb-0">{{numBill}}</h6>
                 </div> 
+                {{/if}}
             </div>
         </div>
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-area fa-3x text-primary"></i>
+                {{#if numProduct}}
                 <div class="ms-3">
-                    <p class="mb-2">Doanh thu ngày</p>
-                    <h6 class="mb-0">10000000 VND</h6>
+                    <p class="mb-2">Tổng số sản phẩm</p>
+                    <h6 class="mb-0">{{numProduct}}</h6>
                 </div>
+                {{/if}}
             </div>
         </div>
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                {{#if numUser}}
                 <div class="ms-3">
-                    <p class="mb-2">Doanh thu tháng</p>
-                    <h6 class="mb-0">100000000 VND</h6>
+                    <p class="mb-2">Số khách hàng</p>
+                    <h6 class="mb-0">{{numUser}}</h6>
                 </div>
+                {{/if}}
             </div>
         </div>
     </div>
@@ -42,21 +50,40 @@
 <!-- Sale & Revenue End -->
 
 
-<!-- Sales Chart Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
-        <div class="col-sm-12 col-xl-12">
-            <div class="bg-light text-center rounded h-100 p-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Đã bán và Doanh thu</h6>
-                    <!-- <a href="">Show All</a> -->
+                    <h6 class="mb-4">Danh sách sản phẩm trong kho hàng</h6>
+                    <a href="/admin/product">Show All</a>
                 </div>
-                <canvas id="worldwide-sales"></canvas>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tên hàng</th>
+                                <th scope="col">Mô tả</th>
+                                <th scope="col">Hãng</th>
+                                <th scope="col">Giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each product}}
+                            <tr>
+                                <td>{{this.name}}</td>
+                                <td>{{this.description}}</td>
+                                <td>{{this.brand}}</td>
+                                <td>{{this.price}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Sales Chart End -->
 
 
 <!-- Recent Sales Start -->
@@ -64,79 +91,31 @@
     <div class="bg-light text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h6 class="mb-0">Đã bán gần đây</h6>
-            <a href="./ds-ban.html">Show All</a>
+            <a href="/admin/bill">Show All</a>
         </div>
         <div class="table-responsive">
             <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
-                    <tr class="text-dark">
-                        <th scope="col">STT</th>
+                    <tr>
                         <th scope="col">Tên hàng</th>
-                        <th scope="col">Mã hàng</th>
-                        <th scope="col">Khách hàng</th>
-                        <th scope="col">Ngày bán</th>
-                        <th scope="col">Giá</th>
+                        <th scope="col">Người mua</th>
+                        <th scope="col">Hãng</th>
                         <th scope="col">Số lượng</th>
-                        <th scope="col">Tình trạng</th>
-                        <th scope="col">Chi tiết</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Ngày mua</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each bill}}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Ipone 14 promax</td>
-                        <td>ip14prm-1</td>
-                        <td>Nguyen Van A</td>
-                        <td>26/11/2022</td>
-                        <td>41000000 VND</td>
-                        <td>1</td>
-                        <td>Đã thanh toán</td>
-                        <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Detail</a></td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.user}}</td>
+                        <td>{{this.brand}}</td>
+                        <td>{{this.number}}</td>
+                        <td>{{this.price}}$</td>
+                        <td>{{this.date}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Ipone 14 promax</td>
-                        <td>ip14prm-1</td>
-                        <td>Nguyen Van A</td>
-                        <td>26/11/2022</td>
-                        <td>41000000 VND</td>
-                        <td>1</td>
-                        <td>Đã thanh toán</td>
-                        <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Ipone 14 promax</td>
-                        <td>ip14prm-1</td>
-                        <td>Nguyen Van A</td>
-                        <td>26/11/2022</td>
-                        <td>41000000 VND</td>
-                        <td>1</td>
-                        <td>Đã thanh toán</td>
-                        <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Ipone 14 promax</td>
-                        <td>ip14prm-1</td>
-                        <td>Nguyen Van A</td>
-                        <td>26/11/2022</td>
-                        <td>41000000 VND</td>
-                        <td>1</td>
-                        <td>Đã thanh toán</td>
-                        <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Ipone 14 promax</td>
-                        <td>ip14prm-1</td>
-                        <td>Nguyen Van A</td>
-                        <td>26/11/2022</td>
-                        <td>41000000 VND</td>
-                        <td>1</td>
-                        <td>Đã thanh toán</td>
-                        <td><a class="btn btn-sm btn-primary" href="./hoa-don.html">Detail</a></td>
-                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
