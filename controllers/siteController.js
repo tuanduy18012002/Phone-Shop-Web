@@ -3,6 +3,7 @@ const product = require('../models/product')
 const user = require('../models/user')
 const {multipleMongooseToObject} =  require('../util/mongoose')
 
+
 class siteController
 {
     pro(req, res, next)
@@ -32,7 +33,7 @@ class siteController
         res.render('./client/login')
     }
 
-    register(reg, res)
+    register(req, res)
     {
         res.render('./client/register')
     }
@@ -43,7 +44,7 @@ class siteController
             const data = await user.find({account: req.body.account});
             if (data.length > 0)
             {
-                res.status(500).json({message: 'Username has been existed!'});
+                return res.send('<h1>User existed!!</h1> <br> <a href="/register">Register again</a>');
             }
             else
             {
