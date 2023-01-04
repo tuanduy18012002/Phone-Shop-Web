@@ -131,7 +131,7 @@ class productController
     async showDetail(req, res, next)
     {
         var prd = new product();
-        res.render('./admin/product-detail', {
+        res.render('./admin/product-add', {
             product : prd
         });
     }
