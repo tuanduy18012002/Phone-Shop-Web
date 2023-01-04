@@ -1,6 +1,7 @@
 const { response } = require('express')
 const user = require('../../models/user')
 const details = require('../../models/user')
+const mongoose = require('../../util/mongoose')
 const {multipleMongooseToObject} =  require('../../util/mongoose')
 const {mongooseToObject} =  require('../../util/mongoose')
 
@@ -36,7 +37,7 @@ class userController
                         pre_page: page <= 1 ? null : page - 1,
                         next_page: page >= numberOfPages ? null : page + 1,
                         pages: listNumberPage,
-                        user: multipleMongooseToObject(user)
+                        acc: multipleMongooseToObject(user)
                     })
                 })
                 .catch(next)
@@ -62,7 +63,7 @@ class userController
                         pre_page: page <= 1 ? null : page - 1,
                         next_page: page >= numberOfPages ? null : page + 1,
                         pages: listNumberPage,
-                        user: multipleMongooseToObject(user)
+                        acc: multipleMongooseToObject(user)
                     })
                 })
                 .catch(next)
@@ -79,7 +80,7 @@ class userController
             await user.find({slug: reg.params.slug})
             .then(user => 
                 res.render('./admin/customer-detail', {
-                    user: multipleMongooseToObject(user)
+                    acc: multipleMongooseToObject(user)
                 })
             )
             .catch(next)
@@ -130,9 +131,9 @@ class userController
 
     async showDetail(req, res, next)
     {
-        var acc = new user();
-        res.render('./admin/customer-detail', {
-            user : acc
+        const acc = new user();
+        res.render('./admin/customer-add', {
+            acc : acc
         });
     }
 }
